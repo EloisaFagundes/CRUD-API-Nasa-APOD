@@ -5,7 +5,7 @@ const initialState = {
 const favorites = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_FAVORITE": {
-      const newList = [... state.favoriteList];
+      const newList = [...state.favoriteList];
       newList.push(action.payload.info);
       return {
         ...state,

@@ -48,7 +48,7 @@ function Favorites() {
       </TitleWrapper>
       <Divider variant="middle" color="secondary" />
 
-      <ContentPageWrapper>
+     <ContentPageWrapper>
         {favoriteList?.map((image) => (
           <ContentWrapperStyled>
             <PaperContentStyled>
@@ -86,8 +86,8 @@ function Favorites() {
             </PaperContentStyled>
           </ContentWrapperStyled>
         ))}
-      </ContentPageWrapper>
-
+      </ContentPageWrapper>     
+      
       <Footer />
     </WrapperAllContentPage>
   );

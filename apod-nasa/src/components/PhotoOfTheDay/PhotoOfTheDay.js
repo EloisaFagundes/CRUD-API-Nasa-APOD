@@ -36,7 +36,7 @@ function PhotoOfTheDay() {
 
   useEffect(() => {
     const favoriteContent = JSON.parse(localStorage.getItem("MyFavorites"));
-    favoriteContent.lenght !== 0 && dispatch(setAllFavorites(favoriteContent));
+    favoriteContent && dispatch(setAllFavorites(favoriteContent));
   }, [dispatch]);
 
   useEffect(() => {
@@ -45,7 +45,6 @@ function PhotoOfTheDay() {
   }, [favoriteList]);
 
   const handleChangeDate = (event) => {
-    console.log(event.target.value);
     setDate(event.target.value);
   };
 
