@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const baseUrl =
-"https://api.nasa.gov/planetary/apod?api_key=xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
-const getApiKey = () => "xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
+"https://api.nasa.gov/planetary/apod?api_key=";
+const getApiKey = () => "";
+// ADICIONE UMA CHAVE DE ACESSO DO SITE https://api.nasa.gov/.
 
 export const setPhoto = (photo) => ({
   type: "SET_PHOTO",
