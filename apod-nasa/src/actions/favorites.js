@@ -20,7 +20,6 @@ export const setAllFavorites = (favorites) => {
 
 
 export const deleteFavorite = (date) => {
-  console.log("deletei");
   return {
     type: "DELETE_FAVORITE",
     payload: {
