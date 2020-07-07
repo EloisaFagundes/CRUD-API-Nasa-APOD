@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const ImageStyled = styled.img`
 display: flex;
-/* border: 1px solid red; */
 width: 350px;
 height: 300px;
 padding-bottom: 8px;
@@ -12,7 +11,6 @@ padding-top: 8px;
 
 export const ContentWrapperStyled = styled.div`
 justify-content: space-around;
-/* border: 1px solid yellow; */
 align-items: center;
 justify-content: center;
 align-self: center;
@@ -40,7 +38,6 @@ padding: 2px;
 `;
 
 export const VideoStyled = styled.iframe`
-/* border: 1px solid red; */
 width: 350px;
 height:300px;
 padding-bottom: 8px;
@@ -65,5 +62,11 @@ margin: 0px;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
-min-height: 76vh;
+flex-grow: 1;
+`
+
+export const WrapperAllContentPage = styled.div`
+display: flex;
+flex-direction: column;
+min-height: 100vh;
 `

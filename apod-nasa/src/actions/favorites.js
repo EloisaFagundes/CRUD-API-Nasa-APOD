@@ -1,6 +1,5 @@
 
 export const addFavorite = (info) => {
-  console.log("adicionei");
   return {
     type: "ADD_FAVORITE",
     payload: {
@@ -8,15 +7,6 @@ export const addFavorite = (info) => {
     },
   };
 };
-
-export const getFavoritesList = (info) => {
-  return {
-    type: "GET_FAVORITES",
-    payload: {
-      info,
-    }
-  }
-}
 
 
 export const setAllFavorites = (favorites) => {
