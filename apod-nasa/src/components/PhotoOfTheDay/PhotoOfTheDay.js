@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AppBar from "../AppBar/AppBar"
+import AppBar from "../AppBar/AppBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhoto, getMediaByDate } from "../../actions/index";
 import { addFavorite } from "../../actions/favorites";
 import { Favorite } from "@material-ui/icons";
 
 import { CardHeader, Typography, TextField, Button } from "@material-ui/core";
-
 import {
   MediaWrapper,
   SelectDateWrapper,
@@ -15,11 +14,18 @@ import {
   VideoStyled,
   ContentWrapper,
   ExplanationWrapper,
-} from "./style";
+} from "./Styles";
 import Footer from "../Footer/Footer";
+import { setAllFavorites } from "../../actions/favorites";
+
+
+
+
 
 function PhotoOfTheDay() {
   const [date, setDate] = useState("");
+
+  const { favoriteList } = useSelector((state) => state.favorites);
 
   const { photoOfTheDay } = useSelector((state) => state.photos);
   const dispatch = useDispatch();
@@ -27,6 +33,16 @@ function PhotoOfTheDay() {
   useEffect(() => {
     dispatch(getPhoto());
   }, [dispatch]);
+
+  useEffect(() => {
+    const favoriteContent = JSON.parse(localStorage.getItem("MyFavorites"));
+    favoriteContent.lenght !== 0 && dispatch(setAllFavorites(favoriteContent));
+  }, [dispatch]);
+
+  useEffect(() => {
+    const stateAsString = JSON.stringify(favoriteList);
+    localStorage.setItem("MyFavorites", stateAsString);
+  }, [favoriteList]);
 
   const handleChangeDate = (event) => {
     console.log(event.target.value);
@@ -56,7 +72,7 @@ function PhotoOfTheDay() {
 
   return (
     <>
-    <AppBar />
+      <AppBar />
       <ContentWrapper>
         <Typography variant="subtitle1">
           Selecione uma data para trocar a imagem:

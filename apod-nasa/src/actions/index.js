@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const baseUrl =
-"https://api.nasa.gov/planetary/apod?api_key=";
-const getApiKey = () => "";
-// Para testar essa API é necessário gerar uma chave no site https://api.nasa.gov/.
+  "https://api.nasa.gov/planetary/apod?api_key=xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
+const getApiKey = () => "xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
 
 export const setPhoto = (photo) => ({
   type: "SET_PHOTO",
@@ -24,13 +23,12 @@ export const getPhoto = () => async (dispatch) => {
   } catch (err) {
     console.error(err.response.data);
     alert(
-      err?.response?.data?.message || "Não foi possível pegar a foto do dia."
+      err?.response?.data?.message || "Não foi possível carregar a imagem do dia."
     );
   }
 };
 
 export const getMediaByDate = (date) => async (dispatch) => {
-  console.log("chegou");
   try {
     const response = await axios.get(`${baseUrl}`, {
       params: {
@@ -43,7 +41,8 @@ export const getMediaByDate = (date) => async (dispatch) => {
   } catch (err) {
     console.error(err.response.data);
     alert(
-      err?.response?.data?.message || "Não foi possível pegar a foto do dia."
+      err?.response?.data?.message ||
+        "Não foi possível pegar a imagem do dia. Verifique se a data corresponde entre o dia 16 de junho de 1995 e hoje "
     );
   }
 };
