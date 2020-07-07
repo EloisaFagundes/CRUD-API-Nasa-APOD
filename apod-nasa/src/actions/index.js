@@ -1,6 +1,8 @@
 import axios from "axios";
 
-
+const baseUrl =
+"https://api.nasa.gov/planetary/apod?api_key=xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
+const getApiKey = () => "xaYMqUHL8b9yyceKLsO7iTzoDHxeCiPKNg39ynDu";
 
 export const setPhoto = (photo) => ({
   type: "SET_PHOTO",
@@ -10,14 +12,13 @@ export const setPhoto = (photo) => ({
 });
 
 export const getPhoto = () => async (dispatch) => {
-  // console.log("Traz a foto necessária")
   try {
     const response = await axios.get(`${baseUrl}`, {
       params: {
         api_key: getApiKey(),
       },
     });
-    // console.log(response.data.date)
+
     dispatch(setPhoto(response.data));
   } catch (err) {
     console.error(err.response.data);
@@ -27,18 +28,16 @@ export const getPhoto = () => async (dispatch) => {
   }
 };
 
-
 export const getMediaByDate = (date) => async (dispatch) => {
   console.log("chegou");
-   // console.log("Traz a foto necessária")
-   try {
+  try {
     const response = await axios.get(`${baseUrl}`, {
       params: {
         api_key: getApiKey(),
-        date: date
+        date: date,
       },
     });
-    // console.log(response.data.date)
+
     dispatch(setPhoto(response.data));
   } catch (err) {
     console.error(err.response.data);

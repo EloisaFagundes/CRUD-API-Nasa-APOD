@@ -12,8 +12,26 @@ const favorites = (state = initialState, action) => {
         favoriteList: newList,
       };
     }
+
+    case "DELETE_FAVORITE": {
+      const newListFavorite =  state.favoriteList.filter(item => item.date !== action.payload.date)
+
+      return {
+        ...state,
+        favoriteList: newListFavorite,
+      };
+    }
+
+    case "SET_ALL_FAVORITES":{
+      return {
+        ...state,
+        favoriteList: action.payload.favorites
+      }
+    }
+
     default:
       return state;
   }
 };
 export default favorites;
+

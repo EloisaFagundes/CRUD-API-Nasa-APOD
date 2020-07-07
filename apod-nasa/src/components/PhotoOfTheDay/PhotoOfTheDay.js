@@ -1,48 +1,25 @@
 import React, { useState, useEffect } from "react";
+import AppBar from "../AppBar/AppBar"
 import { useDispatch, useSelector } from "react-redux";
 import { getPhoto, getMediaByDate } from "../../actions/index";
 import { addFavorite } from "../../actions/favorites";
-import styled from "styled-components";
-import {FavoriteBorderOutlined} from "@material-ui/icons";
+import { Favorite } from "@material-ui/icons";
+
+import { CardHeader, Typography, TextField, Button } from "@material-ui/core";
 
 import {
-  CardContent,
-  CardHeader,
-  Typography,
-  TextField,
-  Button,
-  IconButton
-} from "@material-ui/core";
-
-const MediaWrapper = styled.div`
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  max-width: 1080px;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-`;
-const ImageStyled = styled.img`
-  max-width: 1080px;
-  width: 100%;
-  max-height: auto;
-  min-height: auto;
-  background-size: 100%;
-`;
-
-const VideoStyled = styled.iframe`
-  max-width: 1080px;
-  width: 100%;
-  max-height: auto;
-  height: auto;
-  background-size: 100%;
-`;
+  MediaWrapper,
+  SelectDateWrapper,
+  FormStyled,
+  ImageStyled,
+  VideoStyled,
+  ContentWrapper,
+  ExplanationWrapper,
+} from "./style";
+import Footer from "../Footer/Footer";
 
 function PhotoOfTheDay() {
   const [date, setDate] = useState("");
-  //   console.log(photoOfTheDay);
 
   const { photoOfTheDay } = useSelector((state) => state.photos);
   const dispatch = useDispatch();
@@ -62,48 +39,93 @@ function PhotoOfTheDay() {
   };
 
   const handleAddToFavorites = () => {
-    dispatch(addFavorite(photoOfTheDay))
+    dispatch(addFavorite(photoOfTheDay));
+    alert("Imagem adicionada aos favoritos com sucesso!");
+  };
+
+  let today = new Date();
+  let month = JSON.stringify(today.getMonth() + 1);
+  if (month < 10) {
+    month = "0" + month;
   }
+  let day = today.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  let tomorrow = today.getFullYear() + "-" + month + "-" + day;
 
   return (
     <>
-      <CardHeader
-        title={photoOfTheDay.title}
-        subheader="Escolha abaixo uma data para ver sua respectiva imagem"
-        color="inherit"
-      />
-      <form onSubmit={sendSelectedDate}>
-        <TextField type="date" onChange={handleChangeDate} value={date} />
-        <Button type="OnSubmit">Enviar</Button>
-      </form>
-      <MediaWrapper>
-        {photoOfTheDay.media_type === "image" ? (
-          <ImageStyled
-            src={photoOfTheDay.url}
-            alt="Foto do espaço"
-          ></ImageStyled>
-        ) : (
-          <VideoStyled
-            src={photoOfTheDay.url}
-            title="Foto do espaço"
-            frameBorder="0"
-            gesture="media"
-            allow="encrypted-media"
-            allowFullScreen
-            className="video"
-            height="auto"
-          />
-        )}
-      </MediaWrapper>
-      <IconButton onClick={handleAddToFavorites} color="primary" aria-label="add to favorites images">
-              <FavoriteBorderOutlined color="action"  />
-      </IconButton>
-
-      <CardContent background="black">
-        <Typography variant="subtitle1" align="justify">
-          {photoOfTheDay.explanation}
+    <AppBar />
+      <ContentWrapper>
+        <Typography variant="subtitle1">
+          Selecione uma data para trocar a imagem:
         </Typography>
-      </CardContent>
+        <SelectDateWrapper>
+          <FormStyled onSubmit={sendSelectedDate}>
+            <TextField
+              type="date"
+              inputProps={{
+                max: tomorrow,
+                min: "1995-06-16",
+              }}
+              onChange={handleChangeDate}
+              variant="outlined"
+              value={date}
+              size="small"
+            />
+
+            <Button
+              type="OnSubmit"
+              variant="contained"
+              color="primary"
+              height="100%"
+            >
+              Ver
+            </Button>
+          </FormStyled>
+        </SelectDateWrapper>
+
+        <MediaWrapper>
+          <CardHeader title={photoOfTheDay.title} color="inherit" />
+          <Button
+            onClick={handleAddToFavorites}
+            color="primary"
+            aria-label="add to favorites images"
+            variant="outlined"
+          >
+            {" "}
+            Adicione aos favoritos
+            <Favorite contained="primary" color="primary" />
+          </Button>
+
+          {photoOfTheDay.media_type === "image" ? (
+            <ImageStyled
+              src={photoOfTheDay.url}
+              alt="Foto do espaço"
+            ></ImageStyled>
+          ) : (
+            <VideoStyled
+              src={photoOfTheDay.url}
+              title="Foto do espaço"
+              frameBorder="0"
+              gesture="media"
+              allow="encrypted-media"
+              allowFullScreen
+              className="video"
+              height="auto"
+            />
+          )}
+        </MediaWrapper>
+
+        <ExplanationWrapper>
+          <Typography variant="body2" align="justify">
+            {photoOfTheDay.explanation}
+          </Typography>
+        </ExplanationWrapper>
+      </ContentWrapper>
+
+      <Footer />
     </>
   );
 }
