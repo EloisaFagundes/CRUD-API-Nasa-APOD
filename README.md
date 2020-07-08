@@ -4,6 +4,8 @@ Essa aplicação CRUD é um SPA que consome dados da API da nasa APOD (Astronomy
 
 <p> É possível encontrar essa e outras APIS em https://api.nasa.gov/</p>
 
+MINHA APLICAÇÃO: http://nasa-application-apod-crud.surge.sh/
+
 
 ### Atenção: Para utilização da API é necessário gerar uma API_KEY diretamente no site através de um simples cadastro com o e-mail. 
 
