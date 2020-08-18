@@ -21,7 +21,7 @@ Como é uma API pública, não é possível alterá-la, então o CRUD foi feito 
 - HOOKS
 - JAVASCRIPT
 - STYLED-COMPONENTS
-- MATERIAL UI
+- MATERIAL-UI
 - AXIOS
 
 
