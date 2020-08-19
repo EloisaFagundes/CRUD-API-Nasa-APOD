@@ -2,7 +2,7 @@
 
 Essa aplicação CRUD é um SPA que consome dados da API da nasa APOD (Astronomy Picture Of The Day).
 
-<p> É possível encontrar essa e outras APIS em https://api.nasa.gov/</p>
+<p> É possível encontrar essa e outras APIs em https://api.nasa.gov/</p>
 
 MINHA APLICAÇÃO: http://nasa-application-apod-crud.surge.sh/
 
