@@ -13,10 +13,6 @@ MINHA APLICAÇÃO: http://nasa-application-apod-crud.surge.sh/
 
 <br>
 
-**Versão Web**
-<p align="center">
-<img  height='400' src='https://user-images.githubusercontent.com/45580434/78464868-deb08780-76c4-11ea-853a-ad3b7c050ee0.gif'>
-</p>
 
 
 ### Atenção: Para utilização da API é necessário gerar uma API_KEY diretamente no site através de um simples cadastro com o e-mail. 
