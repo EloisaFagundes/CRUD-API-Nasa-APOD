@@ -32,4 +32,21 @@ Como é uma API pública, não é possível alterá-la, então o CRUD foi feito 
 - MATERIAL-UI
 - AXIOS
 
+### Como rodar a aplicação ▶️
+
+No terminal, clone o projeto:
+
+```
+git clone https://github.com/EloisaFagundes/CRUD-API-Nasa-APOD
+```
+Navegue para dentro da raiz do projeto
+
+```
+cd apod-nasa
+```
+Instale as dependências
+
+```
+npm i
+```
 
