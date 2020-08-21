@@ -37,7 +37,7 @@ Como é uma API pública, não é possível alterá-la, então o CRUD foi feito 
 No terminal, clone o projeto:
 
 ```
-git clone https://github.com/EloisaFagundes/CRUD-API-Nasa-APOD
+git clone https://github.com/EloisaFagundes/CRUD-API-Nasa-APOD.git
 ```
 Navegue para dentro da raiz do projeto
 
