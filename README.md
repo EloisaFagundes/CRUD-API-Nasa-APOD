@@ -8,7 +8,7 @@ MINHA APLICAÇÃO: http://nasa-application-apod-crud.surge.sh/
 
 **Versão mobile**
 <p align="center">
-  <img  height='400' src=''>
+  <img  height='400' src='https://user-images.githubusercontent.com/59846340/91674497-4e5d5e00-eb0f-11ea-9b8c-b796a9e413ee.gif'>
 </p>
 
 <br>
